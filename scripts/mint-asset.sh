@@ -23,11 +23,12 @@ POLICY_ID=$(
 cardano-cli transaction build \
   --babbage-era \
   --tx-in $2 \
+  --required-signer-hash "e0b95cdfa53901e7cc00e8e47490f3f8209da885e509cc24cc91e6ff" \
   --tx-in-collateral "3f78b3161e13084552967c367e5614e06bf9a1d8b5f97d6c757afdb215def882#0" \
   --tx-out "$OUTPUT_ADDRESS+2000000 + 1 $POLICY_ID.$TOKEN_NAME" \
   --mint "1 $POLICY_ID.$TOKEN_NAME" \
   --mint-script-file $POLICY_ID_FILE \
-  --mint-redeemer-value [] \
+  --mint-redeemer-file unit.json \
   --change-address $OUTPUT_ADDRESS \
   --protocol-params-file protocol-parameters.json \
   --out-file $UNSIGNED_TX_FILE \

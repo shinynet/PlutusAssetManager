@@ -12,8 +12,8 @@ import           Plutus.V2.Ledger.Api                 (PubKeyHash (..), Script,
                                                        mkMintingPolicyScript,
                                                        unMintingPolicyScript)
 import qualified PlutusTx
-import           PlutusTx.Builtins.Class              (fromBuiltin, stringToBuiltinByteString)
-import           PlutusTx.Prelude                     hiding ((.), fromBuiltin)
+import           PlutusTx.Builtins.Class              (stringToBuiltinByteString)
+import           PlutusTx.Prelude                     hiding ((.))
 import           Prelude                              ((.))
 
 publicKeyHash :: BuiltinByteString
@@ -32,7 +32,7 @@ policy pkh = mkMintingPolicyScript $
 
 script :: Script
 script = unMintingPolicyScript
-       $ policy (PubKeyHash $ fromBuiltin publicKeyHash)
+       $ policy (PubKeyHash publicKeyHash)
 
 scriptSBS :: ShortByteString
 scriptSBS = toShort . toStrict $ serialise script
