@@ -23,6 +23,8 @@ POLICY_ID=$(
 cardano-cli transaction build \
   --babbage-era \
   --tx-in $2 \
+  --tx-in "7fb16ba9f2854fce20e3e3ba8f997293ab8ca3077622ade5a236e660fa3fc27f#0" \
+  --tx-in "bdabbc302758ca4b33c99940bb7c9df904154ffdecb0c8ead085e0453c7a0051#1" \
   --tx-in-collateral "3f78b3161e13084552967c367e5614e06bf9a1d8b5f97d6c757afdb215def882#0" \
   --tx-out "$OUTPUT_ADDRESS+2000000 + 0 $POLICY_ID.$TOKEN_NAME" \
   --mint "-1 $POLICY_ID.$TOKEN_NAME" \
